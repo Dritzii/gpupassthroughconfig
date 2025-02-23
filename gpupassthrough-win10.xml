@@ -8,6 +8,9 @@
     </metadata>
     <memory unit="KiB">25165824</memory>
     <currentMemory unit="KiB">25165824</currentMemory>
+    <memoryBacking>
+        <hugepages/>
+    </memoryBacking>
     <vcpu placement="static">14</vcpu>
     <iothreads>1</iothreads>
     <cputune>
