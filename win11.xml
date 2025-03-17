@@ -6,11 +6,8 @@
             <libosinfo:os id="http://microsoft.com/win/11"/>
         </libosinfo:libosinfo>
     </metadata>
-    <memory unit="KiB">25165824</memory>
-    <currentMemory unit="KiB">25165824</currentMemory>
-    <memoryBacking>
-        <hugepages/>
-    </memoryBacking>
+    <memory unit="KiB">12582912</memory>
+    <currentMemory unit="KiB">12582912</currentMemory>
     <vcpu placement="static">8</vcpu>
     <iothreads>1</iothreads>
     <cputune>
@@ -75,6 +72,7 @@
     </features>
     <cpu mode="host-passthrough" check="none" migratable="on">
         <topology sockets="1" dies="1" clusters="1" cores="4" threads="2"/>
+        <feature policy="disable" name="smep"/>
     </cpu>
     <clock offset="localtime">
         <timer name="rtc" tickpolicy="catchup"/>
@@ -194,6 +192,11 @@
         </input>
         <input type="mouse" bus="ps2"/>
         <input type="keyboard" bus="ps2"/>
+        <tpm model="tpm-crb">
+            <backend type="passthrough">
+                <device path="/dev/tpm0"/>
+            </backend>
+        </tpm>
         <graphics type="spice" autoport="yes">
             <listen type="address"/>
             <image compression="off"/>
